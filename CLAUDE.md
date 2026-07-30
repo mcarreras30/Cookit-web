@@ -23,7 +23,7 @@ Cookit — landing page para emprendimiento de cookies artesanales caseras en Ca
 - Usar el logo real y las fotos de producto que provea la clienta — no generar imágenes de stock genéricas
 - Estilo de tarjetas de catálogo: foto + badge (opcional) + nombre + precio unidad/docena
 - Botón principal de conversión: WhatsApp (no formulario de contacto)
-- Sin carrito ni pasarela de pago — todo pedido se cierra por WhatsApp
+- Carrito simple sin pago (cajas cerradas armadas por sabor + sueltas) — junta el pedido, pero se sigue cerrando por WhatsApp, no hay pasarela de pago
 
 ## Comandos
 - Test local: `python3 -m http.server`

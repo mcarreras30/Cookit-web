@@ -16,12 +16,57 @@
 </head>
 <body>
 
+  <!-- ============ NAVBAR ============ -->
+  <nav class="navbar" id="navbar" aria-label="Principal">
+    <div class="navbar__inner">
+      <a class="navbar__brand" href="#inicio">
+        <img src="assets/logo/logo-placeholder.svg" alt="" width="28" height="28" />
+        <span>Cookit</span>
+      </a>
+
+      <ul class="navbar__links">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#catalogo">Catálogo</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+
+      <div class="navbar__actions">
+        <button type="button" class="cart-toggle" id="cart-toggle" aria-haspopup="dialog" aria-label="Ver carrito">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+            <path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M8.5 6a3.5 3.5 0 1 1 7 0v1.25H19a1 1 0 0 1 1 .9l1 11a1 1 0 0 1-1 1.1H4a1 1 0 0 1-1-1.1l1-11a1 1 0 0 1 1-.9h3.5V6Zm1.5 1.25h4V6a2 2 0 1 0-4 0v1.25ZM5.91 8.75l-.87 9.6h13.92l-.87-9.6H5.91Z"/>
+          </svg>
+          <span class="cart-toggle__badge" id="cart-badge" hidden>0</span>
+        </button>
+
+        <button
+          class="navbar__toggle"
+          id="navbar-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="navbar-panel"
+          aria-label="Abrir menú"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="navbar__panel" id="navbar-panel">
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#catalogo">Catálogo</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </div>
+  </nav>
+
   <!-- ============ HERO ============ -->
   <header class="hero" id="inicio">
     <div class="hero__inner">
-      <div class="hero__mark">
-        <img src="assets/logo/logo-placeholder.svg" alt="Logo Cookit — placeholder, a reemplazar por el logo real" width="220" height="220" />
-      </div>
       <div class="hero__content">
         <p class="hero__eyebrow">Canning · Buenos Aires</p>
         <h1 class="hero__title">Cookit</h1>
@@ -33,8 +78,41 @@
           </a>
         </div>
       </div>
+      <div class="hero__photo">
+        <img src="assets/img/hero/hero-cookit.jpg" alt="Caja de cookies Cookit recién armada, lista para entregar" width="1050" height="1400" loading="eager" fetchpriority="high" />
+      </div>
     </div>
   </header>
+
+  <!-- ============ TRUST BADGES (marquee) ============ -->
+  <div class="trust-marquee">
+    <div class="trust-marquee__track">
+      <span class="trust-marquee__group">
+        <span>Artesanales</span>
+        <span aria-hidden="true">·</span>
+        <span>Estilo NY</span>
+        <span aria-hidden="true">·</span>
+        <span>Horneado en Canning</span>
+        <span aria-hidden="true">·</span>
+        <span>Encargo por WhatsApp</span>
+        <span aria-hidden="true">·</span>
+        <span>Recetas propias</span>
+        <span aria-hidden="true">·</span>
+      </span>
+      <span class="trust-marquee__group" aria-hidden="true">
+        <span>Artesanales</span>
+        <span aria-hidden="true">·</span>
+        <span>Estilo NY</span>
+        <span aria-hidden="true">·</span>
+        <span>Horneado en Canning</span>
+        <span aria-hidden="true">·</span>
+        <span>Encargo por WhatsApp</span>
+        <span aria-hidden="true">·</span>
+        <span>Recetas propias</span>
+        <span aria-hidden="true">·</span>
+      </span>
+    </div>
+  </div>
 
   <main>
 
@@ -43,102 +121,169 @@
       <div class="section__head">
         <p class="section__eyebrow">Nuestros sabores</p>
         <h2 id="catalogo-title" class="section__title">El catálogo</h2>
-        <p class="section__lead">Ocho sabores hechos en tandas chicas, cada semana. Pedí por unidad o por docena.</p>
+        <p class="section__lead">Elegí una caja cerrada armada por vos, o pedí sueltas sabor por sabor.</p>
       </div>
 
-      <!-- Precios de ejemplo: reemplazar por los valores reales de la clienta -->
-      <div class="catalogo__grid">
+      <div class="catalogo__block">
+        <h3 class="catalogo__block-title">Cajas cerradas</h3>
+        <div class="cajas__grid">
+          <article class="card-caja" data-reveal style="--i:0">
+            <p class="card-caja__size">Caja de 4</p>
+            <p class="card-caja__price">$35.000</p>
+            <p class="card-caja__desc">Elegís vos la mezcla de sabores, hasta completar 4 cookies.</p>
+            <button type="button" class="btn btn--primary card-caja__btn" data-open-box-modal data-box-size="4" data-box-price="35000" data-box-name="Caja de 4">
+              Armar caja
+            </button>
+          </article>
 
-        <article class="card-sabor" data-reveal style="--i:0">
-          <div class="card-sabor__photo">
-            <img src="https://picsum.photos/seed/cookit-clasicas/600/600" alt="Foto placeholder — cookie Clásicas" loading="lazy" width="600" height="600" />
-          </div>
-          <div class="card-sabor__body">
-            <h3 class="card-sabor__name">Clásicas</h3>
-            <p class="card-sabor__price"><span>$900</span> unidad · <span>$9.800</span> docena</p>
-            <a class="card-sabor__link" href="https://wa.me/5491153340097?text=Hola!%20Quiero%20pedir%20cookies%20sabor%20Cl%C3%A1sicas." target="_blank" rel="noopener">Pedir por WhatsApp</a>
-          </div>
-        </article>
+          <article class="card-caja" data-reveal style="--i:1">
+            <p class="card-caja__size">Caja de 6</p>
+            <p class="card-caja__price">$50.000</p>
+            <p class="card-caja__desc">Elegís vos la mezcla de sabores, hasta completar 6 cookies.</p>
+            <button type="button" class="btn btn--primary card-caja__btn" data-open-box-modal data-box-size="6" data-box-price="50000" data-box-name="Caja de 6">
+              Armar caja
+            </button>
+          </article>
+        </div>
+      </div>
 
-        <article class="card-sabor" data-reveal style="--i:1">
-          <div class="card-sabor__photo">
-            <img src="https://picsum.photos/seed/cookit-red-velvet/600/600" alt="Foto placeholder — cookie Red Velvet" loading="lazy" width="600" height="600" />
-          </div>
-          <div class="card-sabor__body">
-            <h3 class="card-sabor__name">Red Velvet</h3>
-            <p class="card-sabor__price"><span>$1.000</span> unidad · <span>$10.800</span> docena</p>
-            <a class="card-sabor__link" href="https://wa.me/5491153340097?text=Hola!%20Quiero%20pedir%20cookies%20sabor%20Red%20Velvet." target="_blank" rel="noopener">Pedir por WhatsApp</a>
-          </div>
-        </article>
+      <div class="catalogo__block">
+        <h3 class="catalogo__block-title">Sueltas</h3>
 
-        <article class="card-sabor" data-reveal style="--i:2">
-          <div class="card-sabor__photo">
-            <img src="https://picsum.photos/seed/cookit-oreo/600/600" alt="Foto placeholder — cookie Oreo" loading="lazy" width="600" height="600" />
-          </div>
-          <div class="card-sabor__body">
-            <h3 class="card-sabor__name">Oreo</h3>
-            <p class="card-sabor__price"><span>$1.000</span> unidad · <span>$10.800</span> docena</p>
-            <a class="card-sabor__link" href="https://wa.me/5491153340097?text=Hola!%20Quiero%20pedir%20cookies%20sabor%20Oreo." target="_blank" rel="noopener">Pedir por WhatsApp</a>
-          </div>
-        </article>
+        <!-- Precios de ejemplo: reemplazar por los valores reales de la clienta -->
+        <div class="catalogo__grid">
 
-        <article class="card-sabor" data-reveal style="--i:3">
-          <div class="card-sabor__photo">
-            <img src="https://picsum.photos/seed/cookit-doble-chocolate/600/600" alt="Foto placeholder — cookie Doble Chocolate" loading="lazy" width="600" height="600" />
-          </div>
-          <div class="card-sabor__body">
-            <h3 class="card-sabor__name">Doble Chocolate</h3>
-            <p class="card-sabor__price"><span>$1.050</span> unidad · <span>$11.200</span> docena</p>
-            <a class="card-sabor__link" href="https://wa.me/5491153340097?text=Hola!%20Quiero%20pedir%20cookies%20sabor%20Doble%20Chocolate." target="_blank" rel="noopener">Pedir por WhatsApp</a>
-          </div>
-        </article>
+          <article class="card-sabor" data-reveal style="--i:0">
+            <div class="card-sabor__photo">
+              <img src="assets/img/flavors/clasicas.jpg" alt="Cookie Clásicas de Cookit" loading="lazy" width="700" height="700" />
+            </div>
+            <div class="card-sabor__body">
+              <h3 class="card-sabor__name">Clásicas</h3>
+              <p class="card-sabor__price"><span>$900</span> unidad · <span>$9.800</span> docena</p>
+              <div class="card-sabor__qty" role="group" aria-label="Cantidad de Clásicas">
+                <button type="button" class="qty__btn" data-qty-decrease aria-label="Restar unidad de Clásicas">−</button>
+                <span class="qty__value" data-qty-value>1</span>
+                <button type="button" class="qty__btn" data-qty-increase aria-label="Sumar unidad de Clásicas">+</button>
+              </div>
+              <button type="button" class="card-sabor__add" data-add-to-cart data-flavor-id="clasicas" data-flavor-name="Clásicas" data-price="900">Agregar al carrito</button>
+            </div>
+          </article>
 
-        <article class="card-sabor" data-reveal style="--i:4">
-          <div class="card-sabor__photo">
-            <span class="card-sabor__badge">Más pedida</span>
-            <img src="https://picsum.photos/seed/cookit-kinder/600/600" alt="Foto placeholder — cookie Kinder" loading="lazy" width="600" height="600" />
-          </div>
-          <div class="card-sabor__body">
-            <h3 class="card-sabor__name">Kinder</h3>
-            <p class="card-sabor__price"><span>$1.200</span> unidad · <span>$13.000</span> docena</p>
-            <a class="card-sabor__link" href="https://wa.me/5491153340097?text=Hola!%20Quiero%20pedir%20cookies%20sabor%20Kinder." target="_blank" rel="noopener">Pedir por WhatsApp</a>
-          </div>
-        </article>
+          <article class="card-sabor" data-reveal style="--i:1">
+            <div class="card-sabor__photo">
+              <img src="assets/img/flavors/red-velvet.jpg" alt="Cookie Red Velvet de Cookit" loading="lazy" width="700" height="700" />
+            </div>
+            <div class="card-sabor__body">
+              <h3 class="card-sabor__name">Red Velvet</h3>
+              <p class="card-sabor__price"><span>$1.000</span> unidad · <span>$10.800</span> docena</p>
+              <div class="card-sabor__qty" role="group" aria-label="Cantidad de Red Velvet">
+                <button type="button" class="qty__btn" data-qty-decrease aria-label="Restar unidad de Red Velvet">−</button>
+                <span class="qty__value" data-qty-value>1</span>
+                <button type="button" class="qty__btn" data-qty-increase aria-label="Sumar unidad de Red Velvet">+</button>
+              </div>
+              <button type="button" class="card-sabor__add" data-add-to-cart data-flavor-id="red-velvet" data-flavor-name="Red Velvet" data-price="1000">Agregar al carrito</button>
+            </div>
+          </article>
 
-        <article class="card-sabor" data-reveal style="--i:5">
-          <div class="card-sabor__photo">
-            <img src="https://picsum.photos/seed/cookit-nutella/600/600" alt="Foto placeholder — cookie Nutella" loading="lazy" width="600" height="600" />
-          </div>
-          <div class="card-sabor__body">
-            <h3 class="card-sabor__name">Nutella</h3>
-            <p class="card-sabor__price"><span>$1.200</span> unidad · <span>$13.000</span> docena</p>
-            <a class="card-sabor__link" href="https://wa.me/5491153340097?text=Hola!%20Quiero%20pedir%20cookies%20sabor%20Nutella." target="_blank" rel="noopener">Pedir por WhatsApp</a>
-          </div>
-        </article>
+          <article class="card-sabor" data-reveal style="--i:2">
+            <div class="card-sabor__photo">
+              <img src="assets/img/flavors/oreo.jpg" alt="Cookie Oreo de Cookit" loading="lazy" width="700" height="700" />
+            </div>
+            <div class="card-sabor__body">
+              <h3 class="card-sabor__name">Oreo</h3>
+              <p class="card-sabor__price"><span>$1.000</span> unidad · <span>$10.800</span> docena</p>
+              <div class="card-sabor__qty" role="group" aria-label="Cantidad de Oreo">
+                <button type="button" class="qty__btn" data-qty-decrease aria-label="Restar unidad de Oreo">−</button>
+                <span class="qty__value" data-qty-value>1</span>
+                <button type="button" class="qty__btn" data-qty-increase aria-label="Sumar unidad de Oreo">+</button>
+              </div>
+              <button type="button" class="card-sabor__add" data-add-to-cart data-flavor-id="oreo" data-flavor-name="Oreo" data-price="1000">Agregar al carrito</button>
+            </div>
+          </article>
 
-        <article class="card-sabor" data-reveal style="--i:6">
-          <div class="card-sabor__photo">
-            <img src="https://picsum.photos/seed/cookit-mani-chocolate-blanco/600/600" alt="Foto placeholder — cookie Maní y chocolate blanco" loading="lazy" width="600" height="600" />
-          </div>
-          <div class="card-sabor__body">
-            <h3 class="card-sabor__name">Maní y chocolate blanco</h3>
-            <p class="card-sabor__price"><span>$1.100</span> unidad · <span>$11.800</span> docena</p>
-            <a class="card-sabor__link" href="https://wa.me/5491153340097?text=Hola!%20Quiero%20pedir%20cookies%20sabor%20Man%C3%AD%20y%20chocolate%20blanco." target="_blank" rel="noopener">Pedir por WhatsApp</a>
-          </div>
-        </article>
+          <article class="card-sabor" data-reveal style="--i:3">
+            <div class="card-sabor__photo">
+              <img src="assets/img/flavors/doble-chocolate.jpg" alt="Cookie Doble Chocolate de Cookit" loading="lazy" width="700" height="700" />
+            </div>
+            <div class="card-sabor__body">
+              <h3 class="card-sabor__name">Doble Chocolate</h3>
+              <p class="card-sabor__price"><span>$1.050</span> unidad · <span>$11.200</span> docena</p>
+              <div class="card-sabor__qty" role="group" aria-label="Cantidad de Doble Chocolate">
+                <button type="button" class="qty__btn" data-qty-decrease aria-label="Restar unidad de Doble Chocolate">−</button>
+                <span class="qty__value" data-qty-value>1</span>
+                <button type="button" class="qty__btn" data-qty-increase aria-label="Sumar unidad de Doble Chocolate">+</button>
+              </div>
+              <button type="button" class="card-sabor__add" data-add-to-cart data-flavor-id="doble-chocolate" data-flavor-name="Doble Chocolate" data-price="1050">Agregar al carrito</button>
+            </div>
+          </article>
 
-        <article class="card-sabor" data-reveal style="--i:7">
-          <div class="card-sabor__photo">
-            <span class="card-sabor__badge card-sabor__badge--alt">Nuevo</span>
-            <img src="https://picsum.photos/seed/cookit-limon-chocolate-blanco/600/600" alt="Foto placeholder — cookie Limón y chocolate blanco" loading="lazy" width="600" height="600" />
-          </div>
-          <div class="card-sabor__body">
-            <h3 class="card-sabor__name">Limón y chocolate blanco</h3>
-            <p class="card-sabor__price"><span>$1.100</span> unidad · <span>$11.800</span> docena</p>
-            <a class="card-sabor__link" href="https://wa.me/5491153340097?text=Hola!%20Quiero%20pedir%20cookies%20sabor%20Lim%C3%B3n%20y%20chocolate%20blanco." target="_blank" rel="noopener">Pedir por WhatsApp</a>
-          </div>
-        </article>
+          <article class="card-sabor" data-reveal style="--i:4">
+            <div class="card-sabor__photo">
+              <span class="card-sabor__badge">Más pedida</span>
+              <img src="assets/img/flavors/kinder.jpg" alt="Cookie Kinder de Cookit" loading="lazy" width="700" height="700" />
+            </div>
+            <div class="card-sabor__body">
+              <h3 class="card-sabor__name">Kinder</h3>
+              <p class="card-sabor__price"><span>$1.200</span> unidad · <span>$13.000</span> docena</p>
+              <div class="card-sabor__qty" role="group" aria-label="Cantidad de Kinder">
+                <button type="button" class="qty__btn" data-qty-decrease aria-label="Restar unidad de Kinder">−</button>
+                <span class="qty__value" data-qty-value>1</span>
+                <button type="button" class="qty__btn" data-qty-increase aria-label="Sumar unidad de Kinder">+</button>
+              </div>
+              <button type="button" class="card-sabor__add" data-add-to-cart data-flavor-id="kinder" data-flavor-name="Kinder" data-price="1200">Agregar al carrito</button>
+            </div>
+          </article>
 
+          <article class="card-sabor" data-reveal style="--i:5">
+            <div class="card-sabor__photo">
+              <img src="assets/img/flavors/nutella.jpg" alt="Cookie Nutella de Cookit" loading="lazy" width="700" height="700" />
+            </div>
+            <div class="card-sabor__body">
+              <h3 class="card-sabor__name">Nutella</h3>
+              <p class="card-sabor__price"><span>$1.200</span> unidad · <span>$13.000</span> docena</p>
+              <div class="card-sabor__qty" role="group" aria-label="Cantidad de Nutella">
+                <button type="button" class="qty__btn" data-qty-decrease aria-label="Restar unidad de Nutella">−</button>
+                <span class="qty__value" data-qty-value>1</span>
+                <button type="button" class="qty__btn" data-qty-increase aria-label="Sumar unidad de Nutella">+</button>
+              </div>
+              <button type="button" class="card-sabor__add" data-add-to-cart data-flavor-id="nutella" data-flavor-name="Nutella" data-price="1200">Agregar al carrito</button>
+            </div>
+          </article>
+
+          <article class="card-sabor" data-reveal style="--i:6">
+            <div class="card-sabor__photo">
+              <img src="assets/img/flavors/mani-chocolate-blanco.jpg" alt="Cookie Maní y chocolate blanco de Cookit" loading="lazy" width="700" height="700" />
+            </div>
+            <div class="card-sabor__body">
+              <h3 class="card-sabor__name">Maní y chocolate blanco</h3>
+              <p class="card-sabor__price"><span>$1.100</span> unidad · <span>$11.800</span> docena</p>
+              <div class="card-sabor__qty" role="group" aria-label="Cantidad de Maní y chocolate blanco">
+                <button type="button" class="qty__btn" data-qty-decrease aria-label="Restar unidad de Maní y chocolate blanco">−</button>
+                <span class="qty__value" data-qty-value>1</span>
+                <button type="button" class="qty__btn" data-qty-increase aria-label="Sumar unidad de Maní y chocolate blanco">+</button>
+              </div>
+              <button type="button" class="card-sabor__add" data-add-to-cart data-flavor-id="mani-chocolate-blanco" data-flavor-name="Maní y chocolate blanco" data-price="1100">Agregar al carrito</button>
+            </div>
+          </article>
+
+          <article class="card-sabor" data-reveal style="--i:7">
+            <div class="card-sabor__photo">
+              <span class="card-sabor__badge card-sabor__badge--alt">Nuevo</span>
+              <img src="assets/img/flavors/limon-chocolate-blanco.jpg" alt="Cookie Limón y chocolate blanco de Cookit" loading="lazy" width="700" height="700" />
+            </div>
+            <div class="card-sabor__body">
+              <h3 class="card-sabor__name">Limón y chocolate blanco</h3>
+              <p class="card-sabor__price"><span>$1.100</span> unidad · <span>$11.800</span> docena</p>
+              <div class="card-sabor__qty" role="group" aria-label="Cantidad de Limón y chocolate blanco">
+                <button type="button" class="qty__btn" data-qty-decrease aria-label="Restar unidad de Limón y chocolate blanco">−</button>
+                <span class="qty__value" data-qty-value>1</span>
+                <button type="button" class="qty__btn" data-qty-increase aria-label="Sumar unidad de Limón y chocolate blanco">+</button>
+              </div>
+              <button type="button" class="card-sabor__add" data-add-to-cart data-flavor-id="limon-chocolate-blanco" data-flavor-name="Limón y chocolate blanco" data-price="1100">Agregar al carrito</button>
+            </div>
+          </article>
+
+        </div>
       </div>
     </section>
 
@@ -228,7 +373,7 @@
   </main>
 
   <!-- ============ FOOTER ============ -->
-  <footer class="footer">
+  <footer class="footer" id="contacto">
     <div class="footer__mark">
       <img src="assets/logo/logo-placeholder.svg" alt="Logo Cookit — placeholder" width="56" height="56" />
       <p>Cookit</p>
@@ -269,6 +414,51 @@
   >
     <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path fill="currentColor" d="M12.02 2C6.5 2 2.03 6.48 2.03 12c0 1.77.46 3.45 1.28 4.93L2 22l5.2-1.36A9.94 9.94 0 0 0 12.02 22C17.53 22 22 17.52 22 12S17.53 2 12.02 2Zm0 18.06c-1.6 0-3.13-.43-4.46-1.24l-.32-.19-3.09.81.83-3-.21-.33a8.05 8.05 0 0 1-1.24-4.11c0-4.46 3.63-8.08 8.09-8.08 4.46 0 8.08 3.62 8.08 8.08 0 4.46-3.62 8.06-8.08 8.06Zm4.44-6.04c-.24-.12-1.43-.7-1.65-.78-.22-.08-.38-.12-.55.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1-.37-1.9-1.17-.7-.62-1.18-1.39-1.31-1.63-.14-.24-.01-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.32-.75-1.8-.2-.47-.4-.41-.55-.42h-.47c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.12 3.64.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.43-.58 1.63-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28Z"/></svg>
   </a>
+
+  <!-- Overlay compartido (modal de caja / drawer del carrito) -->
+  <div class="overlay" id="overlay" hidden></div>
+
+  <!-- Modal: armar caja -->
+  <div class="box-modal" id="box-modal" role="dialog" aria-modal="true" aria-labelledby="box-modal-title" tabindex="-1" hidden>
+    <div class="box-modal__header">
+      <h2 class="box-modal__title" id="box-modal-title">Armá tu caja</h2>
+      <button type="button" class="icon-btn" id="box-modal-close" aria-label="Cerrar">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M6.4 5 5 6.4 10.6 12 5 17.6 6.4 19l5.6-5.6 5.6 5.6 1.4-1.4-5.6-5.6L19 6.4 17.6 5 12 10.6 6.4 5Z"/></svg>
+      </button>
+    </div>
+
+    <div class="box-modal__counter">
+      <p aria-live="polite"><span id="box-modal-count">0</span>/<span id="box-modal-target">4</span> cookies elegidas</p>
+      <div class="box-modal__progress">
+        <div class="box-modal__progress-bar" id="box-modal-progress-bar"></div>
+      </div>
+    </div>
+
+    <ul class="box-modal__flavors" id="box-modal-flavors"></ul>
+
+    <div class="box-modal__footer">
+      <button type="button" class="btn btn--primary" id="box-modal-confirm" disabled>Agregar caja al carrito</button>
+    </div>
+  </div>
+
+  <!-- Drawer: carrito -->
+  <div class="cart-drawer" id="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cart-drawer-title" tabindex="-1" hidden>
+    <div class="cart-drawer__header">
+      <h2 class="cart-drawer__title" id="cart-drawer-title">Tu pedido</h2>
+      <button type="button" class="icon-btn" id="cart-drawer-close" aria-label="Cerrar">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M6.4 5 5 6.4 10.6 12 5 17.6 6.4 19l5.6-5.6 5.6 5.6 1.4-1.4-5.6-5.6L19 6.4 17.6 5 12 10.6 6.4 5Z"/></svg>
+      </button>
+    </div>
+
+    <div class="cart-drawer__body" id="cart-drawer-body"></div>
+
+    <div class="cart-drawer__footer">
+      <p class="cart-drawer__total">Total <span id="cart-drawer-total">$0</span></p>
+      <a class="btn btn--primary cart-drawer__confirm" id="cart-drawer-confirm" href="https://wa.me/5491153340097" target="_blank" rel="noopener">
+        Confirmar pedido por WhatsApp
+      </a>
+    </div>
+  </div>
 
   <script src="js/main.js" defer></script>
 </body>

@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
   <rect width="100" height="100" rx="22" fill="#F3DAD4" />
   <g transform="translate(50,50)">
-    <g fill="#F3DAD4" stroke="#241C1B" stroke-width="3">
+    <g fill="#FBF8F6" stroke="#241C1B" stroke-width="3">
       <g id="fp">
         <ellipse cx="0" cy="-28" rx="9" ry="17" />
       </g>
