@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img" aria-label="Logo Cookit — margarita con centro de cookie (placeholder)">
+  <g transform="translate(100,100)">
+    <!-- Pétalos -->
+    <g fill="#F3DAD4" stroke="#241C1B" stroke-width="2">
+      <g id="petal-group">
+        <ellipse cx="0" cy="-62" rx="20" ry="38" />
+      </g>
+      <use href="#petal-group" transform="rotate(45)" />
+      <use href="#petal-group" transform="rotate(90)" />
+      <use href="#petal-group" transform="rotate(135)" />
+      <use href="#petal-group" transform="rotate(180)" />
+      <use href="#petal-group" transform="rotate(225)" />
+      <use href="#petal-group" transform="rotate(270)" />
+      <use href="#petal-group" transform="rotate(315)" />
+    </g>
+
+    <!-- Centro: cookie -->
+    <circle cx="0" cy="0" r="42" fill="#C68A2E" stroke="#241C1B" stroke-width="2" />
+    <circle cx="0" cy="0" r="42" fill="none" stroke="#9C6B1E" stroke-width="1" stroke-dasharray="2 5" opacity="0.6" />
+
+    <!-- Chips de chocolate -->
+    <circle cx="-16" cy="-10" r="4.5" fill="#241C1B" />
+    <circle cx="10" cy="-18" r="3.5" fill="#241C1B" />
+    <circle cx="18" cy="8" r="4" fill="#241C1B" />
+    <circle cx="-6" cy="14" r="3" fill="#241C1B" />
+    <circle cx="2" cy="0" r="3.5" fill="#241C1B" />
+    <circle cx="-20" cy="12" r="2.5" fill="#241C1B" />
+  </g>
+</svg>

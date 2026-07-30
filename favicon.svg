@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <rect width="100" height="100" rx="22" fill="#F3DAD4" />
+  <g transform="translate(50,50)">
+    <g fill="#F3DAD4" stroke="#241C1B" stroke-width="3">
+      <g id="fp">
+        <ellipse cx="0" cy="-28" rx="9" ry="17" />
+      </g>
+      <use href="#fp" transform="rotate(60)" />
+      <use href="#fp" transform="rotate(120)" />
+      <use href="#fp" transform="rotate(180)" />
+      <use href="#fp" transform="rotate(240)" />
+      <use href="#fp" transform="rotate(300)" />
+    </g>
+    <circle cx="0" cy="0" r="18" fill="#C68A2E" stroke="#241C1B" stroke-width="3" />
+    <circle cx="-6" cy="-4" r="2.2" fill="#241C1B" />
+    <circle cx="5" cy="-7" r="1.8" fill="#241C1B" />
+    <circle cx="7" cy="4" r="2" fill="#241C1B" />
+    <circle cx="-3" cy="7" r="1.6" fill="#241C1B" />
+  </g>
+</svg>
