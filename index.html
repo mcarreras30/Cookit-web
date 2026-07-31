@@ -354,8 +354,8 @@
       <div class="entrega__col entrega__col--horarios">
         <h3 class="entrega__horarios-title">Días de entrega</h3>
         <ul class="entrega__horarios">
-          <li><span>Viernes</span> 17:30 a 20:30 hs</li>
-          <li><span>Sábados</span> 9 a 12 hs</li>
+          <li><span>Viernes</span> <span class="entrega__horarios-time">17:30 a 20:30 hs</span></li>
+          <li><span>Sábados</span> <span class="entrega__horarios-time">9 a 12 hs</span></li>
         </ul>
         <p class="entrega__nota">Los pedidos se toman los lunes y martes de 8 a 17 hs.</p>
       </div>
@@ -364,13 +364,10 @@
     <!-- ============ TESTIMONIOS ============ -->
     <section class="testimonios" id="testimonios" aria-labelledby="testimonios-title">
       <div class="section__head">
-        <p class="section__eyebrow">Lo que dicen</p>
-        <h2 id="testimonios-title" class="section__title">Clientas de Cookit</h2>
+        <h2 id="testimonios-title" class="section__title">Los que ya las disfrutaron</h2>
       </div>
 
       <div class="testimonios__track-wrap">
-        <button class="testimonios__nav testimonios__nav--prev" type="button" aria-label="Ver testimonio anterior">‹</button>
-
         <ul class="testimonios__track" id="testimonios-track">
           <li class="card-testimonio" data-reveal style="--i:0">
             <span class="card-testimonio__avatar" aria-hidden="true">FA</span>
@@ -387,16 +384,58 @@
             <p class="card-testimonio__quote">"Las de Kinder son un golazo. Coordinar por WhatsApp es súper simple."</p>
             <p class="card-testimonio__author">Caro Ibáñez</p>
           </li>
+          <li class="card-testimonio" aria-hidden="true">
+            <span class="card-testimonio__avatar" aria-hidden="true">FA</span>
+            <p class="card-testimonio__quote">"Pedí las Red Velvet para un cumpleaños y volaron. Quedaron mejor que en la foto."</p>
+            <p class="card-testimonio__author">Flor Aguirre</p>
+          </li>
+          <li class="card-testimonio" aria-hidden="true">
+            <span class="card-testimonio__avatar" aria-hidden="true">MF</span>
+            <p class="card-testimonio__quote">"Encargo todas las semanas para la oficina. Siempre a tiempo y recién horneadas."</p>
+            <p class="card-testimonio__author">Male Ferreyra</p>
+          </li>
+          <li class="card-testimonio" aria-hidden="true">
+            <span class="card-testimonio__avatar" aria-hidden="true">CI</span>
+            <p class="card-testimonio__quote">"Las de Kinder son un golazo. Coordinar por WhatsApp es súper simple."</p>
+            <p class="card-testimonio__author">Caro Ibáñez</p>
+          </li>
+          <li class="card-testimonio" aria-hidden="true">
+            <span class="card-testimonio__avatar" aria-hidden="true">FA</span>
+            <p class="card-testimonio__quote">"Pedí las Red Velvet para un cumpleaños y volaron. Quedaron mejor que en la foto."</p>
+            <p class="card-testimonio__author">Flor Aguirre</p>
+          </li>
+          <li class="card-testimonio" aria-hidden="true">
+            <span class="card-testimonio__avatar" aria-hidden="true">MF</span>
+            <p class="card-testimonio__quote">"Encargo todas las semanas para la oficina. Siempre a tiempo y recién horneadas."</p>
+            <p class="card-testimonio__author">Male Ferreyra</p>
+          </li>
+          <li class="card-testimonio" aria-hidden="true">
+            <span class="card-testimonio__avatar" aria-hidden="true">CI</span>
+            <p class="card-testimonio__quote">"Las de Kinder son un golazo. Coordinar por WhatsApp es súper simple."</p>
+            <p class="card-testimonio__author">Caro Ibáñez</p>
+          </li>
+          <li class="card-testimonio" aria-hidden="true">
+            <span class="card-testimonio__avatar" aria-hidden="true">FA</span>
+            <p class="card-testimonio__quote">"Pedí las Red Velvet para un cumpleaños y volaron. Quedaron mejor que en la foto."</p>
+            <p class="card-testimonio__author">Flor Aguirre</p>
+          </li>
+          <li class="card-testimonio" aria-hidden="true">
+            <span class="card-testimonio__avatar" aria-hidden="true">MF</span>
+            <p class="card-testimonio__quote">"Encargo todas las semanas para la oficina. Siempre a tiempo y recién horneadas."</p>
+            <p class="card-testimonio__author">Male Ferreyra</p>
+          </li>
+          <li class="card-testimonio" aria-hidden="true">
+            <span class="card-testimonio__avatar" aria-hidden="true">CI</span>
+            <p class="card-testimonio__quote">"Las de Kinder son un golazo. Coordinar por WhatsApp es súper simple."</p>
+            <p class="card-testimonio__author">Caro Ibáñez</p>
+          </li>
         </ul>
-
-        <button class="testimonios__nav testimonios__nav--next" type="button" aria-label="Ver testimonio siguiente">›</button>
       </div>
     </section>
 
     <!-- ============ FAQ ============ -->
     <section class="faq" id="faq" aria-labelledby="faq-title">
       <div class="section__head">
-        <p class="section__eyebrow">Antes de pedir</p>
         <h2 id="faq-title" class="section__title">Preguntas frecuentes</h2>
       </div>
 
@@ -407,7 +446,7 @@
         </details>
         <details class="faq__item">
           <summary>¿Cómo hago mi pedido?</summary>
-          <p>Todo se coordina por WhatsApp: contanos qué sabores y qué cantidad querés, y ahí definimos el pago y la entrega.</p>
+          <p>Elegí tus sabores favoritos en la web y confirmá el pedido por WhatsApp así coordinamos el pago y la entrega.</p>
         </details>
         <details class="faq__item">
           <summary>¿Qué formas de pago aceptan?</summary>
@@ -425,7 +464,7 @@
   <!-- ============ FOOTER ============ -->
   <footer class="footer" id="contacto">
     <div class="footer__mark">
-      <img src="assets/logo/logo-placeholder.svg" alt="Logo Cookit — placeholder" width="56" height="56" />
+      <img src="assets/logo/logo-placeholder.svg" alt="" width="56" height="56" />
       <p>Cookit</p>
     </div>
 
@@ -450,7 +489,7 @@
       </li>
     </ul>
 
-    <p class="footer__note">Hecho a mano en Canning.</p>
+    <p class="footer__note">El estilo NY llegó a Canning.</p>
   </footer>
 
   <!-- Sticky WhatsApp -->

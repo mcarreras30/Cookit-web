@@ -517,6 +517,15 @@ main section {
   max-width: 50rem;
 }
 
+/* Los títulos de testimonios y FAQ quedaban justo al límite de 44ch (ajuste
+   exacto, sin margen) — entraban en una línea en algunos motores de render
+   pero no en otros. Estas dos secciones no tienen bajada, así que ensanchar
+   el contenedor no afecta legibilidad de ningún párrafo. */
+#testimonios .section__head,
+#faq .section__head {
+  max-width: 36rem;
+}
+
 .section__eyebrow {
   font-family: var(--font-display);
   font-style: italic;
@@ -825,6 +834,12 @@ main section {
   font-family: var(--font-display);
 }
 
+.entrega__horarios li .entrega__horarios-time {
+  font-family: var(--font-body);
+  font-weight: 400;
+  white-space: nowrap;
+}
+
 .entrega__nota {
   margin-top: var(--space-sm);
   font-size: var(--fs-xs);
@@ -846,30 +861,45 @@ main section {
 }
 
 /* ============================================
-   Testimonios (scroll horizontal, no grid)
+   Testimonios (autoplay continuo, sin interacción manual)
    ============================================ */
 .testimonios__track-wrap {
   position: relative;
-  display: flex;
-  align-items: center;
-  gap: var(--space-xs);
+  overflow: hidden;
 }
 
 .testimonios__track {
   display: flex;
   gap: var(--space-sm);
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  padding-bottom: var(--space-2xs);
-  scrollbar-width: none;
+  width: max-content;
+  will-change: transform;
+  animation: testimonios-scroll 48s linear infinite;
 }
 
-.testimonios__track::-webkit-scrollbar {
-  display: none;
+.testimonios__track-wrap:hover .testimonios__track,
+.testimonios__track-wrap:focus-within .testimonios__track,
+.testimonios__track-wrap.is-paused .testimonios__track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .testimonios__track {
+    animation: none;
+  }
+}
+
+@keyframes testimonios-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    /* 4 copias idénticas de las 3 cards en el track — 1/4 del ancho total
+       equivale a un set completo, mismo mecanismo modular que el marquee. */
+    transform: translateX(-25%);
+  }
 }
 
 .card-testimonio {
-  scroll-snap-align: start;
   flex: 0 0 min(360px, 82vw);
   background: var(--color-paper);
   border: 1px solid var(--color-blush-deep);
@@ -903,36 +933,6 @@ main section {
   font-weight: 700;
   font-size: var(--fs-sm);
   color: var(--color-ink-soft);
-}
-
-.testimonios__nav {
-  flex: 0 0 auto;
-  width: 2.75rem;
-  height: 2.75rem;
-  border-radius: 50%;
-  border: 1.5px solid var(--color-ink);
-  background: transparent;
-  font-size: var(--fs-lg);
-  line-height: 1;
-  cursor: pointer;
-  transition: transform var(--dur-fast) var(--ease-out), background var(--dur-base) var(--ease-out);
-}
-
-.testimonios__nav:active {
-  transform: scale(0.94);
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .testimonios__nav:hover {
-    background: var(--color-ink);
-    color: var(--color-paper);
-  }
-}
-
-@media (max-width: 640px) {
-  .testimonios__nav {
-    display: none;
-  }
 }
 
 /* ============================================
@@ -985,8 +985,8 @@ main section {
    Footer
    ============================================ */
 .footer {
-  background: var(--color-ink);
-  color: var(--color-paper);
+  background: var(--color-blush);
+  color: var(--color-ink);
   padding: var(--space-lg) var(--space-md) var(--space-xl);
   scroll-margin-top: var(--nav-height);
   display: flex;
@@ -1001,11 +1001,6 @@ main section {
   flex-direction: column;
   align-items: center;
   gap: var(--space-2xs);
-}
-
-.footer__mark img {
-  filter: brightness(0) invert(1);
-  opacity: 0.9;
 }
 
 .footer__mark p {
@@ -1027,7 +1022,7 @@ main section {
   align-items: center;
   gap: var(--space-2xs);
   font-size: var(--fs-sm);
-  color: var(--color-paper);
+  color: var(--color-ink);
   opacity: 0.85;
   transition: opacity var(--dur-fast) var(--ease-out);
 }

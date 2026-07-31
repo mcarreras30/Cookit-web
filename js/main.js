@@ -78,20 +78,19 @@
     });
   }
 
-  // --- Carrusel de testimonios ---
-  const track = document.getElementById("testimonios-track");
-  const prevBtn = document.querySelector(".testimonios__nav--prev");
-  const nextBtn = document.querySelector(".testimonios__nav--next");
+  // --- Testimonios: pausa táctil (hover/focus ya los maneja el CSS) ---
+  const testimoniosWrap = document.querySelector(".testimonios__track-wrap");
 
-  if (track && prevBtn && nextBtn) {
-    const scrollByCard = (direction) => {
-      const card = track.querySelector(".card-testimonio");
-      const distance = card ? card.getBoundingClientRect().width + 20 : 320;
-      track.scrollBy({ left: direction * distance, behavior: "smooth" });
-    };
+  if (testimoniosWrap) {
+    testimoniosWrap.addEventListener("pointerdown", () => {
+      testimoniosWrap.classList.add("is-paused");
+    });
 
-    prevBtn.addEventListener("click", () => scrollByCard(-1));
-    nextBtn.addEventListener("click", () => scrollByCard(1));
+    ["pointerup", "pointercancel", "pointerleave"].forEach((evt) => {
+      testimoniosWrap.addEventListener(evt, () => {
+        testimoniosWrap.classList.remove("is-paused");
+      });
+    });
   }
 
   // --- Botón flotante de WhatsApp: aparece luego de scrollear más allá del hero ---
