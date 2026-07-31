@@ -113,6 +113,19 @@
 
   const formatMoney = (amount) => `$${Math.round(amount).toLocaleString("es-AR")}`;
 
+  // El catálogo es fijo (nace de data-* en el HTML), pero el carrito se
+  // relee de localStorage en cada carga — y localStorage se puede editar a
+  // mano. Escapamos igual todo texto que se interpola en innerHTML, por si
+  // ese JSON alguna vez viene manipulado.
+  const escapeHtml = (value) =>
+    String(value).replace(/[&<>"']/g, (char) => ({
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#39;",
+    }[char]));
+
   // Los 8 sabores son la única fuente de verdad: se leen de las cards sueltas
   // ya presentes en el DOM y se reutilizan tanto para las sueltas como para
   // poblar el armador de cajas.
@@ -260,12 +273,14 @@
     flavorCatalog.forEach((flavor) => {
       const li = document.createElement("li");
       li.className = "box-modal__flavor";
+      const name = escapeHtml(flavor.name);
+      const id = escapeHtml(flavor.id);
       li.innerHTML = `
-        <span class="box-modal__flavor-name">${flavor.name}</span>
+        <span class="box-modal__flavor-name">${name}</span>
         <div class="qty">
-          <button type="button" class="qty__btn" data-box-decrease="${flavor.id}" aria-label="Restar ${flavor.name}">−</button>
-          <span class="qty__value" data-box-qty-value="${flavor.id}">0</span>
-          <button type="button" class="qty__btn" data-box-increase="${flavor.id}" aria-label="Sumar ${flavor.name}">+</button>
+          <button type="button" class="qty__btn" data-box-decrease="${id}" aria-label="Restar ${name}">−</button>
+          <span class="qty__value" data-box-qty-value="${id}">0</span>
+          <button type="button" class="qty__btn" data-box-increase="${id}" aria-label="Sumar ${name}">+</button>
         </div>
       `;
       boxModalFlavors.appendChild(li);
@@ -361,14 +376,17 @@
   const renderBoxLine = (line) => {
     const wrap = document.createElement("div");
     wrap.className = "cart-line";
+    const name = escapeHtml(line.name);
+    const id = escapeHtml(line.id);
+    const breakdown = line.flavors.map((f) => `${f.qty} ${escapeHtml(f.name)}`).join(", ");
     wrap.innerHTML = `
       <div class="cart-line__row">
-        <span class="cart-line__name">${line.name}</span>
+        <span class="cart-line__name">${name}</span>
         <span class="cart-line__price">${formatMoney(line.price)}</span>
       </div>
-      <p class="cart-line__meta">${line.flavors.map((f) => `${f.qty} ${f.name}`).join(", ")}</p>
+      <p class="cart-line__meta">${breakdown}</p>
       <div class="cart-line__foot">
-        <button type="button" class="cart-line__remove" data-remove-line="${line.id}">Quitar</button>
+        <button type="button" class="cart-line__remove" data-remove-line="${id}">Quitar</button>
       </div>
     `;
     return wrap;
@@ -377,18 +395,20 @@
   const renderLooseLine = (line) => {
     const wrap = document.createElement("div");
     wrap.className = "cart-line";
+    const name = escapeHtml(line.name);
+    const id = escapeHtml(line.id);
     wrap.innerHTML = `
       <div class="cart-line__row">
-        <span class="cart-line__name">${line.name}</span>
+        <span class="cart-line__name">${name}</span>
         <span class="cart-line__price">${formatMoney(line.unitPrice * line.qty)}</span>
       </div>
       <div class="cart-line__foot">
         <div class="qty">
-          <button type="button" class="qty__btn" data-line-decrease="${line.id}" aria-label="Restar unidad de ${line.name}">−</button>
+          <button type="button" class="qty__btn" data-line-decrease="${id}" aria-label="Restar unidad de ${name}">−</button>
           <span class="qty__value">${line.qty}</span>
-          <button type="button" class="qty__btn" data-line-increase="${line.id}" aria-label="Sumar unidad de ${line.name}">+</button>
+          <button type="button" class="qty__btn" data-line-increase="${id}" aria-label="Sumar unidad de ${name}">+</button>
         </div>
-        <button type="button" class="cart-line__remove" data-remove-line="${line.id}">Quitar</button>
+        <button type="button" class="cart-line__remove" data-remove-line="${id}">Quitar</button>
       </div>
     `;
     return wrap;
