@@ -453,6 +453,7 @@ body.reveal-ready [data-reveal].is-visible {
 .trust-marquee__track {
   display: flex;
   width: max-content;
+  will-change: transform;
   animation: marquee 26s linear infinite;
 }
 
@@ -466,8 +467,7 @@ body.reveal-ready [data-reveal].is-visible {
   display: flex;
   align-items: center;
   flex-shrink: 0;
-  gap: var(--space-md);
-  padding: var(--space-sm) var(--space-md);
+  padding: var(--space-sm) 0;
   font-family: var(--font-body);
   font-weight: 700;
   font-size: var(--fs-xs);
@@ -477,12 +477,21 @@ body.reveal-ready [data-reveal].is-visible {
   white-space: nowrap;
 }
 
+.trust-marquee__group > span {
+  margin-right: var(--space-md);
+}
+
 @keyframes marquee {
   from {
     transform: translateX(0);
   }
   to {
-    transform: translateX(-50%);
+    /* Con 5 copias idénticas del contenido en el track, desplazar 1/5 (un grupo
+       completo) alcanza para cerrar el loop sin que se acabe el contenido visible
+       antes de tiempo en pantallas anchas (ver investigación: con 2 copias, un
+       grupo (~943px) es más angosto que viewports típicos de ≥1440px, así que
+       quedaba fondo vacío cerca del final del ciclo). */
+    transform: translateX(-20%);
   }
 }
 
@@ -501,6 +510,13 @@ main section {
   max-width: 44ch;
 }
 
+/* La bajada del catálogo es más larga que el resto — necesita más ancho
+   para entrar en un renglón, sin afectar el resto de las secciones. */
+#catalogo .section__head {
+  container-type: inline-size;
+  max-width: 50rem;
+}
+
 .section__eyebrow {
   font-family: var(--font-display);
   font-style: italic;
@@ -517,6 +533,11 @@ main section {
   margin-top: var(--space-xs);
   color: var(--color-ink-soft);
   font-size: var(--fs-md);
+}
+
+#catalogo .section__lead {
+  font-size: clamp(0.85rem, 3.6cqw, var(--fs-md));
+  white-space: nowrap;
 }
 
 /* ============================================
@@ -558,7 +579,7 @@ main section {
   font-family: var(--font-display);
   font-style: italic;
   color: var(--color-mustard-deep);
-  font-size: var(--fs-sm);
+  font-size: var(--fs-lg);
 }
 
 .card-caja__price {
@@ -651,8 +672,15 @@ main section {
 }
 
 .card-sabor__price {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
   color: var(--color-ink-soft);
   font-size: var(--fs-sm);
+}
+
+.card-sabor__price p {
+  margin: 0;
 }
 
 .card-sabor__price span {

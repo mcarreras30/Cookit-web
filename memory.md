@@ -14,7 +14,7 @@
 1. Hero — logo, "COOKIT", bajada, botones "Ver catálogo" / "Pedir ahora" (WhatsApp)
 2. Catálogo — dos formas de compra:
    - Cajas cerradas (precio fijo): Caja de 4 ($35.000) y Caja de 6 ($50.000). Se arman eligiendo sabores del catálogo (se puede repetir sabor) hasta completar exactamente 4 o 6 unidades.
-   - Sueltas — tarjetas con foto + badge opcional + nombre + precio unidad/docena: Clásicas, Red Velvet, Oreo, Doble Chocolate, Kinder, Nutella, Maní y chocolate blanco, Limón y chocolate blanco
+   - Sueltas — tarjetas con foto + badge opcional + nombre + precio por unidad (ya no se vende docena individual, solo caja de 4/6 o unidad suelta): Clásicas, Red Velvet, Oreo, Doble Chocolate, Kinder, Nutella, Maní y chocolate blanco, Limón y chocolate blanco
    - Carrito (sin pago): junta cajas + sueltas, badge de cantidad en el navbar, drawer lateral con el detalle y el total, botón final que arma el mensaje de WhatsApp (separando cajas de sueltas) y lo manda a wa.me. Persiste en localStorage.
 3. Zona de entrega — Canning (domicilio) + punto de encuentro St. Thomas Este-Oeste
 4. Testimonios de clientas

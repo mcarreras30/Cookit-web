@@ -21,7 +21,7 @@ Cookit — landing page para emprendimiento de cookies artesanales caseras en Ca
 - Tipografía: serif elegante para títulos, serif fina/itálica para detalles
 - Motivo decorativo: margarita con centro de cookie (logo)
 - Usar el logo real y las fotos de producto que provea la clienta — no generar imágenes de stock genéricas
-- Estilo de tarjetas de catálogo: foto + badge (opcional) + nombre + precio unidad/docena
+- Estilo de tarjetas de catálogo: foto + badge (opcional) + nombre + precio por unidad (sin docena individual — la docena solo existe como Caja de 4/6 armable)
 - Botón principal de conversión: WhatsApp (no formulario de contacto)
 - Carrito simple sin pago (cajas cerradas armadas por sabor + sueltas) — junta el pedido, pero se sigue cerrando por WhatsApp, no hay pasarela de pago
 
